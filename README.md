@@ -16,7 +16,8 @@ for [MaskRomTool](https://github.com/travisgoodspeed/maskromtool/).
 To dump the ROM into bytes, first install MaskRomTool and then run
 `make clean all`.  This will extract the firmware from both images,
 diff them, and then convert from little to big endian.  The final
-result is `rom.bin`.
+result is `rom.bin`.  If you just want a copy of the ROM without
+building it from the photos, see `rom-prebuilt.img`.
 
 `eeprom.img` is an image of the 128kB EEPROM, part number SST29EE010.
 It is big endian, as we can see by the strings and the PCMCIA CID
@@ -90,8 +91,10 @@ a more consistent representation.
 
 ## Related Docs
 
+The `docs/` subdirectory contains a number of useful PDF files for
+understanding the Fortezza card.
+
 [Protocol Failure in the Escrowed Encryption
 Standard](https://www.mattblaze.org/papers/eesproto.pdf) and [Key
 Escrow from a Safe
 Distance](https://www.mattblaze.org/escrow-acsac11.pdf) by Matt Blaze
-
