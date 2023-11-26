@@ -1,4 +1,5 @@
-all: rom20x6.bin rom20x7.bin rom.bin lutleft.txt lutright.txt 
+all: rom20x6.bin rom20x7.bin rom.bin lutleft.txt lutright.txt
+	md5sum -c md5.txt
 
 rom.bin: rom20x7.bin
 # Convert to presumed big-endianness.
@@ -9,15 +10,15 @@ rom20x6.txt: rom20x6.tif rom20x6.tif.json
 # Rerun with -V if you need to figure out a failure.
 	maskromtool rom20x6.tif -a rom20x6.txt -platform offscreen -e
 rom20x6.bin: rom20x6.txt
-#	gatorom --decode-arm6 rom20x6.txt -o rom20x6.bin
-	maskromtool rom20x6.tif --export-arm6 rom20x6.bin -platform offscreen -e
+	gatorom --decode-arm6 rom20x6.txt -o rom20x6.bin
+#	maskromtool rom20x6.tif -o rom20x6.bin -platform offscreen -e
 rom20x7.txt: rom20x7.tif rom20x7.tif.json
 # -d does a DRC, and ought to fail if the result is wrong.
 # Rerun with -V if you need to figure out a failure.
 	maskromtool rom20x7.tif -a rom20x7.txt -platform offscreen -e 
 rom20x7.bin: rom20x7.txt
 #	gatorom --decode-arm6 rom20x7.txt -o rom20x7.bin
-	maskromtool rom20x7.tif --export-arm6 rom20x7.bin -platform offscreen -e
+	maskromtool rom20x7.tif -o rom20x7.bin -platform offscreen -e
 
 open:
 # Just opens in a GUI.
