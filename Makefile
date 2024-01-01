@@ -24,7 +24,7 @@ open:
 # Just opens in a GUI.
 	maskromtool rom20x7.tif
 clean:
-	rm -f rom*.txt *.bin
+	rm -f lut*.txt rom*.txt *.bin
 diff: rom20x6.txt rom20x7.txt
 	diff rom20x6.txt rom20x7.txt
 
