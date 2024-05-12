@@ -10,15 +10,19 @@ rom20x6.txt: rom20x6.tif rom20x6.tif.json
 # Rerun with -V if you need to figure out a failure.
 	maskromtool rom20x6.tif -a rom20x6.txt -platform offscreen -e
 rom20x6.bin: rom20x6.txt
-	gatorom --decode-arm6 rom20x6.txt -o rom20x6.bin
+	gatorom -w 32 --decode-cols-left rom20x6.txt -o rom20x6.bin
 #	maskromtool rom20x6.tif -o rom20x6.bin -platform offscreen -e
 rom20x7.txt: rom20x7.tif rom20x7.tif.json
 # -d does a DRC, and ought to fail if the result is wrong.
 # Rerun with -V if you need to figure out a failure.
 	maskromtool rom20x7.tif -a rom20x7.txt -platform offscreen -e 
 rom20x7.bin: rom20x7.txt
-#	gatorom --decode-arm6 rom20x7.txt -o rom20x7.bin
+#	gatorom -w 32 --decode-cols-left rom20x7.txt -o rom20x7.bin
 	maskromtool rom20x7.tif -o rom20x7.bin -platform offscreen -e
+
+
+solve: rom20x6.txt
+	gatorom -w 32 --solve --solve-string "00,00,00,20,00,00,00,20,00,00,00,20,00,00,00,20" rom20x6.txt
 
 open:
 # Just opens in a GUI.
