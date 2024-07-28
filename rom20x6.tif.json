@@ -2,7 +2,7 @@
     "00about": "Export from MaskROMTool by Travis Goodspeed",
     "00github": "http://github.com/travisgoodspeed/mcuexploits/",
     "00imagefilename": "rom20x6.tif",
-    "00version": "2024.06.22",
+    "00version": "2024.07.27",
     "bitfixes": [
         {
             "ambiguous": false,
